@@ -6,3 +6,4 @@ Default setup uses repo-level model packs.
 test
 test
 test
+test
