@@ -13,7 +13,9 @@ public class MyController {
     @GetMapping("/")
     public String index(@RequestParam("id") String id) {
         try (var con = sql2o.open()) {
-            con.createQuery("select 1 where id = " + id).executeScalar(Integer.class);
+            con.createQuery("select 1 where id = :id")
+                .addParameter("id", id)
+                .executeScalar(Integer.class);
         }
 
         return "Greetings from Spring Boot!";
